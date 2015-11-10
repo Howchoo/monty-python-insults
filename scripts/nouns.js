@@ -1,0 +1,20 @@
+var nouns = [
+  "sons of a window-dresser",
+  "bedwetting types",
+  "wipers of other people's bottoms",
+  "buggerfolk",
+  "kniggets",
+  "food-trough wiper",
+  "pig-dogs",
+  "son of a person",
+  "so-called Arthur King",
+  "trollop",
+  "ponce",
+  "poofter",
+  "pillock",
+  "ratbag",
+  "git",
+  "prancer",
+  "pervert",
+  "heap of parrot droppings"
+]
