@@ -23,14 +23,21 @@ define(["backbone", "underscore"], function(Backbone, _) {
 
       if (this.getRandomInt(1) == 0) {
         insult += beginnings[this.getRandomInt(beginnings.length - 1)]; 
-        insult += " ";
+        insult += " you ";
+        insult += nouns[this.getRandomInt(nouns.length - 1)];
+        insult += "! ";
       }
       insult += actions[this.getRandomInt(actions.length - 1)];
-      insult += " you ";
+      insult += ", you ";
       insult += adjectives[this.getRandomInt(adjectives.length - 1)];
       insult += " ";
       insult += nouns[this.getRandomInt(nouns.length - 1)];
-      alert(insult);
+      insult += "!";
+
+      this.renderInsult(insult);
+    },
+    renderInsult: function(insult){
+      this.$("#insult").html(insult);
     }
   });
 
