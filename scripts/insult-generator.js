@@ -20,19 +20,29 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
     generateResult: function(){
       var insult = "";
+      var gotBeginning;
 
+      // 50% chance of getting a "beginning"
       if (this.getRandomInt(1) == 0) {
         insult += beginnings[this.getRandomInt(beginnings.length - 1)]; 
         insult += " you ";
         insult += nouns[this.getRandomInt(nouns.length - 1)];
         insult += "! ";
+        gotBeginning = true;
       }
+
       insult += actions[this.getRandomInt(actions.length - 1)];
       insult += ", you ";
       insult += adjectives[this.getRandomInt(adjectives.length - 1)];
       insult += " ";
       insult += nouns[this.getRandomInt(nouns.length - 1)];
       insult += "!";
+
+      // 50% chance of getting an "ending"
+      if (!gotBeginning && this.getRandomInt(1) == 0) {
+        insult += " ";
+        insult += endings[this.getRandomInt(endings.length - 1)]; 
+      }
 
       this.renderInsult(insult);
     },
