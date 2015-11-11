@@ -3,8 +3,6 @@ require.config({
     "jquery": "jquery.min",
     "underscore": "../bower_components/underscore/underscore-min",
     "backbone": "../bower_components/backbone/backbone",
-    "react": "../bower_components/react/react.min.js",
-    "JSXTransformer": "../bower_components/react/JSXTransformer.js"
   },
   "shim" : {
     "backbone" : {
@@ -23,7 +21,7 @@ require.config({
   }
 });
 require(["backbone", "router", "beginnings", "endings", "actions", 
-    "nouns", "adjectives", "noun_adjective_combos"], function(Backbone, Router) {
+    "nouns", "adjectives", "noun_adjective_combos", "commands"], function(Backbone, Router) {
   new Router();
   Backbone.history.start();
 });

@@ -21,6 +21,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
     generateResult: function(){
       var insult = "";
       var gotBeginning;
+      var gotCommand;
 
       // 50% chance of getting a "beginning"
       if (this.getRandomInt(1) == 0) {
@@ -29,17 +30,32 @@ define(["backbone", "underscore"], function(Backbone, _) {
         insult += nouns[this.getRandomInt(nouns.length - 1)];
         insult += "! ";
         gotBeginning = true;
+      // 50% chance of getting a "command"
+      } else {
+        insult += commands[this.getRandomInt(commands.length - 1)]; 
+        insult += ", you ";
+        insult += nouns[this.getRandomInt(nouns.length - 1)];
+        insult += "! ";
+        gotCommand = true;
       }
 
       insult += actions[this.getRandomInt(actions.length - 1)];
-      insult += ", you ";
-      insult += adjectives[this.getRandomInt(adjectives.length - 1)];
-      insult += " ";
-      insult += nouns[this.getRandomInt(nouns.length - 1)];
-      insult += "!";
+      insult += ", ";
 
-      // 50% chance of getting an "ending"
-      if (!gotBeginning && this.getRandomInt(1) == 0) {
+      // 50% chance of getting a separate noun and adjective
+      if (this.getRandomInt(1) == 0) {
+        insult += adjectives[this.getRandomInt(adjectives.length - 1)];
+        insult += " ";
+        insult += nouns[this.getRandomInt(nouns.length - 1)];
+        insult += "!";
+      // 50% chance of getting a predefined noun adjective combo
+      } else {
+        insult += noun_adjective_combos[this.getRandomInt(noun_adjective_combos.length - 1)];
+        insult += "!";
+      }
+
+      // 50% chance of getting an "ending" if a "beginning" was not already chosen
+      if (!gotBeginning && !gotCommand && this.getRandomInt(1) == 0) {
         insult += " ";
         insult += endings[this.getRandomInt(endings.length - 1)]; 
       }

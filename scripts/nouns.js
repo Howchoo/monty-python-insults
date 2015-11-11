@@ -16,14 +16,13 @@ var nouns = [
   "ratbag",
   "git",
   "prancer",
-  "prancing pervert",
   "pram pusher",
   "heap of parrot droppings",
-  "cheese eating surrender monkey",
   "muppet",
   "uphill gardener",
   "prat",
-  "arsemonger",
   "tosser",
-  "ditch digger"
+  "ditch digger",
+  "old sow",
+  "cow"
 ]

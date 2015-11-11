@@ -23,5 +23,9 @@ var adjectives = [
   "gormless",
   "dodgy",
   "miserable",
-  "cock-eyed"
+  "cock-eyed",
+  "half-witted",
+  "rancorous",
+  "coiffured",
+  "petulant"
 ]
