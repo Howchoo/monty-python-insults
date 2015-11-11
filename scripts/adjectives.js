@@ -17,5 +17,11 @@ var adjectives = [
   "malodorous",
   "coffee-nosed",
   "tripe tasting",
-  "snotty faced"
+  "sniveling",
+  "snotty faced",
+  "manky",
+  "gormless",
+  "dodgy",
+  "miserable",
+  "cock-eyed"
 ]

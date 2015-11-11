@@ -11,10 +11,18 @@ var nouns = [
   "trollop",
   "ponce",
   "poofter",
+  "carriage ride participant",
   "pillock",
   "ratbag",
   "git",
   "prancer",
   "pervert",
-  "heap of parrot droppings"
+  "pram pusher",
+  "heap of parrot droppings",
+  "cheese eating surrender monkey",
+  "muppet",
+  "uphill gardener",
+  "prat",
+  "arsemonger",
+  "tosser"
 ]
