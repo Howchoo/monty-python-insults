@@ -16,10 +16,20 @@ li {
   position: relative;
 }
 
+h1.title {
+  text-align: center;
+}
+
 .container {
   width: 100%;
   height: 800px;
   background-color: #000;
+  text-align: center;
+}
+
+.insult-me {
+  font-size: 24px;
+  margin: 20px 0;
 }
 
 .insult {

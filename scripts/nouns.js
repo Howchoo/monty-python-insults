@@ -16,7 +16,7 @@ var nouns = [
   "ratbag",
   "git",
   "prancer",
-  "pervert",
+  "prancing pervert",
   "pram pusher",
   "heap of parrot droppings",
   "cheese eating surrender monkey",
