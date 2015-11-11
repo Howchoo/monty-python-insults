@@ -24,5 +24,6 @@ var nouns = [
   "uphill gardener",
   "prat",
   "arsemonger",
-  "tosser"
+  "tosser",
+  "ditch digger"
 ]
