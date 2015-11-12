@@ -6,5 +6,5 @@ var endings = [
   "Your mother was a hamster, and your father smelt of elderberries!",
   "Now go away or I shall taunt you a second time!",
   "Fetchez la vache!",
-  "Monsieur Arthur-King, who has the brain of a duck, you know!"
+  "Silly monsieur Arthur-King, who has the brain of a duck, you know!"
 ]
