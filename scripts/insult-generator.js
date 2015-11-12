@@ -63,7 +63,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
       this.renderInsult(insult);
     },
     renderInsult: function(insult){
-      this.$("#insult").html(insult);
+      this.$("#insult").show().html(insult);
     }
   });
 
