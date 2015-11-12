@@ -59,7 +59,7 @@ h1.title {
   padding: 5px 20px;
   color: #333;
   background: rgba(255, 255, 255, .8);
-  margin: 25% 20px 0;
+  margin: 100px;
   font-family: helvetica;
 }
 
@@ -72,5 +72,8 @@ h1.title {
     background-size: 300%;
     background-position: 75% top;
     padding-bottom: 75%;
+  }
+  .insult {
+    margin: 5%;
   }
 }
