@@ -1,12 +1,22 @@
 define(["backbone", "underscore"], function(Backbone, _) {
+  String.prototype.trunc = function(n){
+     var isTooLong = this.length > n;
+     var string = isTooLong ? this.substr(0,n) : this;
+     string = isTooLong ? string.substr(0, string.lastIndexOf(' ')) : string;
+     return  isTooLong ? string + '...' : string;
+  };
+
   var insultGenerator = {};
   var settings = {
   };
 
   var mainView = Backbone.View.extend({
+    currentInsult: "",
     el: ".container",
     events: {
-      "click #insult-me": "generateResult"
+      "click #insult-me": "generateResult",
+      "click .button-facebook": "shareFacebook",
+      "click .button-twitter": "shareTwitter"
     },
     initialize: function() {
       this.template = _.template($("#mainTemplate").html());
@@ -60,10 +70,34 @@ define(["backbone", "underscore"], function(Backbone, _) {
         insult += endings[this.getRandomInt(endings.length - 1)]; 
       }
 
+      this.currentInsult = insult;
       this.renderInsult(insult);
     },
     renderInsult: function(insult){
-      this.$("#insult").show().html(insult);
+      this.$("#insult").show().find("> span").html(insult);
+    },
+    shareFacebook: function(){
+       FB.ui({
+         method: 'share',
+         href: 'http://montypythoninsults.com',
+         caption: this.currentInsult
+       }, function(response){});
+    },
+    shareTwitter: function(){
+      var width = 575;
+      var height = 400;
+      var left = ($(window).width()  - width)  / 2;
+      var top = ($(window).height() - height) / 2;
+      var opts = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+
+      var endOfTweet = encodeURIComponent(" #montypythoninsults http://montypythoninsults.com");
+      var tweet = "https://twitter.com/intent/tweet?text=" + this.currentInsult.trunc(160 - endOfTweet.length - 3, true);
+      window.test = this.currentInsult;
+      window.open(tweet + endOfTweet, 'twitter', opts);
     }
   });
 

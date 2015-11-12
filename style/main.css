@@ -63,6 +63,19 @@ h1.title {
   font-family: helvetica;
 }
 
+.insult .social-buttons {
+  margin: 30px 0;
+  padding: 0 50px;
+}
+
+.insult .button-facebook {
+  float: left;
+}
+
+.insult .button-twitter {
+  float: right;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   h1.title {
     margin: 10px;
@@ -76,4 +89,8 @@ h1.title {
   .insult {
     margin: 5%;
   }
+}
+
+.clearfix {
+  clear: both;
 }
