@@ -5,12 +5,13 @@
 
 body {
   font-family: 'cast-iron', serif;
+  font-size: 12px;
   width: 100%;
   margin: 0 auto;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 3.5em;
 }
 
 ul {
@@ -41,7 +42,7 @@ h1.title {
 }
 
 .insult-me {
-  font-size: 30px;
+  font-size: 2.5em;
   margin: 30px 0;
   color: blue;
   font-family: 'cast-iron';
@@ -49,10 +50,14 @@ h1.title {
 }
 
 .insult {
-  font-size: 28px;
+  font-size: 2.5em;
   padding: 5px 20px;
   color: #333;
   background: rgba(255, 255, 255, .8);
   margin: 30% 20px 0;
   font-family: helvetica;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body: font-size: 30px;
 }
