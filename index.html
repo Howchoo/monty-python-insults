@@ -2,16 +2,16 @@
 <html>
   <head>
     <title>Monty Python Insult Generator</title>
-    <link href="style/main.css" rel="stylesheet" type="text/css">
-    <link href="style/buttons.css" rel="stylesheet" type="text/css">
-    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <link href="/static/style/main.css" rel="stylesheet" type="text/css">
+    <link href="/static/style/buttons.css" rel="stylesheet" type="text/css">
+    <script data-main="/static/scripts/main" src="/static/bower_components/requirejs/require.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
 
     <meta property="og:url" content="http://www.montypythoninsults.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Monty Python Insult Generator" />
+    <meta property="og:title" content="{{ og.title }}" />
     <meta property="og:description" content="Monty Python Insult Generator" />
-    <meta property="og:image" content="http://www.your-domain.com/path/image.jpg" />
+    <meta property="og:image" content="{{ og.image.url }}" />
   </head>
   <body>
     <h1 class="title">Monty Python Insult Generator</h1>
