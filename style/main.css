@@ -33,7 +33,7 @@ h1.title {
   background-image: url("../img/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: 75% center;
   background-color: #666;
   max-width: 100%;
   margin-left: auto;
@@ -54,10 +54,11 @@ h1.title {
   padding: 5px 20px;
   color: #333;
   background: rgba(255, 255, 255, .8);
-  margin: 30% 20px 0;
+  margin: 25% 20px 0;
   font-family: helvetica;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  body: font-size: 30px;
+@media only screen and (max-width: 767px) {
+  body {
+  }
 }
