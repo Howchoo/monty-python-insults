@@ -3,6 +3,10 @@
   src: url('castiron.ttf'); /* IE9 Compat Modes */
 }
 
+h1, h2, h3, h4, h5, h6 { /*reset for mobile browsers */
+  font-weight: normal;
+}
+
 body {
   font-family: 'cast-iron', serif;
   font-size: 12px;
