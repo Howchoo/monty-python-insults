@@ -58,7 +58,14 @@ h1.title {
   font-family: helvetica;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   body {
+    font-size: 30px;
+  }
+  .container {
+    height: 100%;
+    background-size: 300%;
+    background-position: 75% top;
+    padding-bottom: 100%;
   }
 }
