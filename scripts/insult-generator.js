@@ -54,8 +54,8 @@ define(["backbone", "underscore"], function(Backbone, _) {
         insult += "!";
       }
 
-      // 50% chance of getting an "ending"
-      if (this.getRandomInt(1) == 0) {
+      // 50% chance of getting an "ending" if the insult isn't already too long-winded
+      if (insult.length < 80 && this.getRandomInt(1) == 0) {
         insult += " ";
         insult += endings[this.getRandomInt(endings.length - 1)]; 
       }

@@ -1,5 +1,5 @@
 var endings = [
-  "Cut the approaching any more or we fire arrows at the tops of your heads and make castinets out of your testicles already! Ha ha!",
+  "Cut the approaching any more or we will fire arrows at the tops of your heads and make castinets out of your testicles already! Ha ha!",
   "And if you think you got nasty taunting this time, you ain't heard nothing yet!",
   "Thpppt!",
   "You and your silly English Knnnnnnnn-ighuts",
