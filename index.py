@@ -22,7 +22,10 @@ def save_share_data():
 
     cache.set(guid, title, 10800)
 
-    return jsonify(guid=guid)
+    response = jsonify(guid=guid)
+    response.status_code = 201
+
+    return response
 
 
 if __name__ == "__main__":

@@ -19,16 +19,20 @@ define(["backbone", "underscore"], function(Backbone, _) {
       "click .button-facebook": "shareFacebook",
       "click .button-twitter": "shareTwitter"
     },
+
     initialize: function() {
       this.template = _.template($("#mainTemplate").html());
     },
+
     render: function() {
       this.$el.append(this.template);
       return this;
     },
+
     getRandomInt: function(max) {
       return Math.floor(Math.random() * (max + 1));
     },
+
     generateResult: function(){
       var insult = "";
       var gotBeginning;
@@ -84,9 +88,11 @@ define(["backbone", "underscore"], function(Backbone, _) {
         self.renderInsult(insult);
       });
     },
+
     renderInsult: function(insult){
       this.$("#insult").show().find("> span").html(insult);
     },
+
     shareFacebook: function(){
        FB.ui({
          method: 'share',
@@ -94,6 +100,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
          caption: this.currentInsult
        }, function(response){});
     },
+
     shareTwitter: function(){
       var width = 575;
       var height = 400;
