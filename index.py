@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, jsonify
 
 from werkzeug.contrib.cache import MemcachedCache
@@ -27,6 +28,6 @@ def save_share_data():
 
     return response
 
-
 if __name__ == "__main__":
-        app.run(debug=True)
+    debug = os.environ.get("MONTY_PYTHON_DEV", False)
+    app.run(debug=debug)

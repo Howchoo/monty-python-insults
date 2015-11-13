@@ -1,13 +1,7 @@
 define(["backbone", "underscore"], function(Backbone, _) {
-  String.prototype.trunc = function(n){
-     var isTooLong = this.length > n;
-     var string = isTooLong ? this.substr(0,n) : this;
-     string = isTooLong ? string.substr(0, string.lastIndexOf(' ')) : string;
-     return  isTooLong ? string + '...' : string;
-  };
-
   var insultGenerator = {};
   var settings = {
+    base_url: window.base_url
   };
 
   var mainView = Backbone.View.extend({
@@ -78,7 +72,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
       this.currentInsult = insult;
       var self = this;
       $.ajax({
-        url: "/save-share-data", 
+        url: settings.base_url + "save-share-data", 
         type: "POST",
         data: {
           title: this.currentInsult
