@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monty Python Insult Generator</title>
+    <link href="/static/style/main.css" rel="stylesheet" type="text/css">
+    <link href="/static/style/buttons.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script data-main="/static/scripts/main" src="/static/bower_components/requirejs/require.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+
+    <meta property="og:url" content="http://www.montypythoninsults.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ og.title if og.title else 'Monty Python Insult Generator'}}" />
+    <meta property="og:description" content="Monty Python Insult Generator" />
+    <meta property="og:image" content="" />
+  </head>
+  <body>
+    <h1 class="title">Monty Python Insult Generator</h1>
+    <div class="container">
+      <button id="insult-me" class="insult-me">Insult Me</button>
+      <div id="insult" class="insult" style="display:none;">
+        <span></span>
+        <div class="social-buttons">
+          <a class="social-button button-facebook" href="#">Share on Facebook</a>
+          <a class="social-button button-twitter" href="#">Share on Twitter</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </body>
+  <script id="mainTemplate" type="text/template">
+  </script>
+  <script>
+    var base_url = "{{ request.base_url }}";
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1083266555046864',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "http://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+</html>
