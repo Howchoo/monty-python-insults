@@ -1,0 +1,8 @@
+web:
+  # build: .
+  image: josephtyler/montypythoninsults
+  command: python index.py
+  ports:
+    - 5000:5000
+  volumes:
+    - .:/var/montypython
