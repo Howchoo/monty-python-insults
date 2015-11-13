@@ -7,6 +7,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
   var mainView = Backbone.View.extend({
     currentInsult: "",
     currentShareGuid: "",
+    numInsultsGenerated: 0,
     el: ".container",
     events: {
       "click #insult-me": "generateResult",
@@ -29,41 +30,47 @@ define(["backbone", "underscore"], function(Backbone, _) {
 
     generateResult: function(){
       var insult = "";
-      var gotBeginning;
       var gotCommand;
 
-      // 50% chance of getting a "beginning"
-      if (this.getRandomInt(1) == 0) {
-        insult += beginnings[this.getRandomInt(beginnings.length - 1)]; 
-        insult += " you ";
-        insult += nouns[this.getRandomInt(nouns.length - 1)];
-        insult += "! ";
-        gotBeginning = true;
-      // 50% chance of getting a "command"
-      } else {
-        insult += commands[this.getRandomInt(commands.length - 1)]; 
-        insult += ", you ";
-        insult += nouns[this.getRandomInt(nouns.length - 1)];
-        insult += "! ";
-        gotCommand = true;
+      this.numInsultsGenerated++;
+
+      // interesting little button updates 
+      if (this.numInsultsGenerated == 1){
+        $("#insult-me").html("More Insults Please");
+      } else if (this.numInsultsGenerated == 15){
+        $("#insult-me").html("Pull the other one");
+      } else if (this.numInsultsGenerated == 25){
+        $("#insult-me").html("Keep them coming");
+      } else if (this.numInsultsGenerated == 50){
+        $("#insult-me").html("Ok that's quite enough");
+      } else if (this.numInsultsGenerated == 100){
+        $("#insult-me").html("More Insults Please");
       }
 
-      insult += actions[this.getRandomInt(actions.length - 1)];
-      insult += ", ";
+      // 25% chance of getting a command
+      if (this.getRandomInt(3) == 0) {
+        insult += commands[this.getRandomInt(commands.length - 1)]; 
+        gotCommand = true;
+      // 75% chance of getting an "action" if a command wasn't chosen
+      } else {
+        insult += actions[this.getRandomInt(actions.length - 1)];
+      }
 
-      // 50% chance of getting a separate noun and adjective
-      if (this.getRandomInt(1) == 0) {
+      insult += ", you ";
+
+      // 66% chance of getting a separate noun and adjective
+      if (this.getRandomInt(2) != 0) {
         insult += adjectives[this.getRandomInt(adjectives.length - 1)];
         insult += " ";
         insult += nouns[this.getRandomInt(nouns.length - 1)];
         insult += "!";
-      // 50% chance of getting a predefined noun adjective combo
+      // 33% chance of getting a predefined noun adjective combo
       } else {
         insult += noun_adjective_combos[this.getRandomInt(noun_adjective_combos.length - 1)];
         insult += "!";
       }
 
-      // 50% chance of getting an "ending" if the insult isn't already too long-winded
+      // 50% chance of getting an ending if the insult isn't already too long-winded
       if (insult.length < 80 && this.getRandomInt(1) == 0) {
         insult += " ";
         insult += endings[this.getRandomInt(endings.length - 1)]; 

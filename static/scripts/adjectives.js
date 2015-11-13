@@ -27,5 +27,7 @@ var adjectives = [
   "half-witted",
   "rancorous",
   "coiffured",
-  "petulant"
+  "petulant",
+  "whining",
+  "loose bladdered"
 ]

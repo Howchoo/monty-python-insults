@@ -20,7 +20,7 @@ require.config({
     }
   }
 });
-require(["backbone", "router", "beginnings", "endings", "actions", 
+require(["backbone", "router", "endings", "actions", 
     "nouns", "adjectives", "noun_adjective_combos", "commands", "lib"], function(Backbone, Router) {
   new Router();
   Backbone.history.start();
