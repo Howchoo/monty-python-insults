@@ -1,6 +1,6 @@
 web:
-  # build: .
-  image: josephtyler/montypythoninsults
+  build: .
+  #image: josephtyler/montypythoninsults
   command: python index.py
   ports:
     - 5000:5000
