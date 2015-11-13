@@ -15,6 +15,6 @@ RUN apt-get install -f -y build-essential python-pip python-dev libncurses5-dev
 RUN mkdir -p /var/montypython
 WORKDIR /var/montypython
 
-ADD requirements.txt /var/montypython/
+ADD app/requirements.txt /var/montypython/
 
 RUN pip install -r requirements.txt

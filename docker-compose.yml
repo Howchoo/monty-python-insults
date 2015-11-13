@@ -5,6 +5,6 @@ web:
   ports:
     - 5000:5000
   volumes:
-    - .:/var/montypython
+    - ./app:/var/montypython
   environment:
     - MONTY_PYTHON_DEV=true
