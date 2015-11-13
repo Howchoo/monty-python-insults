@@ -6,3 +6,5 @@ web:
     - 5000:5000
   volumes:
     - .:/var/montypython
+  environment:
+    - MONTY_PYTHON_DEV=true
