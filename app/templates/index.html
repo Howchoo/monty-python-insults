@@ -34,7 +34,7 @@
   </script>
   <script>
     var base_url = "{{ request.base_url }}";
-    var appId = "{{ '1084117374961782' if DEBUG else '1083266555046864' }}";
+    var appID = "{{ '1084117374961782' if config.DEBUG else '1083266555046864' }}";
     window.fbAsyncInit = function() {
       FB.init({
         appId      : appID,

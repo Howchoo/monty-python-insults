@@ -10,7 +10,6 @@ cache = MemcachedCache(['127.0.0.1:11211'])
 
 @app.route("/")
 def index():
-    DEBUG = app.config['DEBUG']
     share_guid = request.args.get('share_guid', None)
     og = {
         "title": cache.get(share_guid) if share_guid else None
@@ -31,5 +30,4 @@ def save_share_data():
 
 if __name__ == "__main__":
     debug = os.environ.get("MONTY_PYTHON_DEV", False)
-    app.config['DEBUG'] = debug
     app.run(debug=debug, host='0.0.0.0')
