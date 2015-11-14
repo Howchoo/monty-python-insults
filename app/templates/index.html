@@ -12,15 +12,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ og.title if og.title else 'Monty Python Insult Generator'}}" />
     <meta property="og:description" content="Monty Python Insult Generator" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="{{ url_for('static', filename='img/bg2.jpg', _external=True) }}" />
   </head>
   <body>
     <h1 class="title">Monty Python Insult Generator</h1>
     <div class="container">
       <button id="insult-me" class="insult-me">Insult Me</button>
       <div id="insult" class="insult" style="display:none;">
-        <span style="display:none"></span>
-        <canvas id="canvas" width="500" height="320"></canvas>
+        <span></span>
+        <!--<canvas id="canvas" width="500" height="320"></canvas>-->
         <div class="social-buttons">
           <button class="social-button button-facebook">Share on Facebook</button>
           <button class="social-button button-twitter">Share on Twitter</button>
@@ -34,6 +34,7 @@
   </script>
   <script>
     var base_url = "{{ request.base_url }}";
+    var og_image_url = "{{ url_for('static', filename='img/bg2.jpg', _external=True) }}";
     var appID = "{{ '1084117374961782' if config.DEBUG else '1083266555046864' }}";
     window.fbAsyncInit = function() {
       FB.init({

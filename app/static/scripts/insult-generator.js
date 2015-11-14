@@ -1,7 +1,8 @@
 define(["backbone", "underscore"], function(Backbone, _) {
   var insultGenerator = {};
   var settings = {
-    base_url: window.base_url
+    base_url: window.base_url,
+    og_image_url: window.og_image_url
   };
 
   var mainView = Backbone.View.extend({
@@ -91,6 +92,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
       });
 
 
+      /*
       var canvas = document.getElementById('canvas');
       canvas.width = 580;
       canvas.height = 200;
@@ -103,6 +105,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
       }
 
       CanvasTextWrapper(canvas, insult, options);
+      */
     },
 
     renderInsult: function(insult){
@@ -110,11 +113,14 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
 
     shareFacebook: function(){
-       FB.ui({
-         method: 'share',
-         href: settings.base_url + '?share_guid=' + this.currentShareGuid,
-         caption: this.currentInsult
-       }, function(response){});
+      FB.ui({
+        method: 'share',
+        name: 'Monty Python Insult Generator Share',
+        href: settings.base_url,
+        description: this.currentInsult,
+        picture: settings.og_image_url,
+        caption: "Click to get your own insult"
+      }, function(response){});
     },
 
     shareTwitter: function(){
