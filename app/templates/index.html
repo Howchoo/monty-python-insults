@@ -13,8 +13,46 @@
     <meta property="og:title" content="{{ og.title if og.title else 'Monty Python Insult Generator'}}" />
     <meta property="og:description" content="Monty Python Insult Generator" />
     <meta property="og:image" content="" />
+    <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+    var gads = document.createElement("script");
+    gads.async = true;
+    gads.type = "text/javascript";
+    var useSSL = "https:" == document.location.protocol;
+    gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+    var node =document.getElementsByTagName("script")[0];
+    node.parentNode.insertBefore(gads, node);
+    })();
+    </script>
+    <script>
+    googletag.cmd.push(function() {
+      googletag.defineSlot("/59049904/MPI_Home_Header", [728, 90], "leaderboard")
+        .addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+    });
+    </script>
   </head>
   <body>
+    <div id="leaderboard" class="leaderboard">
+      <script type="text/javascript">
+        googletag.cmd.push(function() { googletag.display("leaderboard"); });
+      </script>
+
+      {# adsense ##
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- MPI Leaderboard -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-8391156267500360"
+           data-ad-slot="7987021731"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      #}
+    </div>
     <h1 class="title">Monty Python Insult Generator</h1>
     <div class="container">
       <button id="insult-me" class="insult-me">Insult Me</button>
