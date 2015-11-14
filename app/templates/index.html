@@ -5,7 +5,7 @@
     <link href="/static/style/main.css" rel="stylesheet" type="text/css">
     <link href="/static/style/buttons.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <script data-main="/static/scripts/main" src="/static/bower_components/requirejs/require.js"></script>
+    <script data-main="/static/scripts/main" src="{{ url_for('static', filename='scripts/lib/require.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
 
     <meta property="og:url" content="http://www.montypythoninsults.com" />
@@ -19,7 +19,8 @@
     <div class="container">
       <button id="insult-me" class="insult-me">Insult Me</button>
       <div id="insult" class="insult" style="display:none;">
-        <span></span>
+        <span style="display:none"></span>
+        <canvas id="canvas" width="500" height="320"></canvas>
         <div class="social-buttons">
           <button class="social-button button-facebook">Share on Facebook</button>
           <button class="social-button button-twitter">Share on Twitter</button>
@@ -33,9 +34,10 @@
   </script>
   <script>
     var base_url = "{{ request.base_url }}";
+    var appId = "{{ '1084117374961782' if DEBUG else '1083266555046864' }}";
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '1083266555046864',
+        appId      : appID,
         xfbml      : true,
         version    : 'v2.5'
       });

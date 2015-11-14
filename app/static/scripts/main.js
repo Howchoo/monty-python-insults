@@ -1,8 +1,9 @@
 require.config({
   paths: {
-    "jquery": "jquery.min",
-    "underscore": "../bower_components/underscore/underscore-min",
-    "backbone": "../bower_components/backbone/backbone",
+    "jquery": "lib/jquery.min",
+    "underscore": "lib/underscore-min",
+    "backbone": "lib/backbone",
+    "canvas-text-wrapper": "lib/canvas-text-wrapper.min"
   },
   "shim" : {
     "backbone" : {
@@ -20,8 +21,8 @@ require.config({
     }
   }
 });
-require(["backbone", "router", "endings", "actions", 
-    "nouns", "adjectives", "noun_adjective_combos", "commands", "lib"], function(Backbone, Router) {
+require(["backbone", "router", "endings", "actions", "nouns", 
+    "adjectives", "noun_adjective_combos", "commands", "lib", "canvas-text-wrapper"], function(Backbone, Router) {
   new Router();
   Backbone.history.start();
 });
