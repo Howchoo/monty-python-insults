@@ -1,6 +1,5 @@
 web:
-  # build: .
-  image: josephtyler/montypythoninsults
+  image: josephtyler/mpi_dev
   command: python index.py
   ports:
     - 5000:5000

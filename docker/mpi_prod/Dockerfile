@@ -13,14 +13,14 @@ RUN mkdir -p /var/log/uwsgi/app/
 
 
 RUN rm /etc/nginx/sites-enabled/default
-COPY prod/flask.conf /etc/nginx/sites-available/
+COPY docker/mpi_prod/flask.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/flask.conf /etc/nginx/sites-enabled/flask.conf
-COPY prod/uwsgi.ini /var/www/app/
+COPY docker/mpi_prod/uwsgi.ini /var/www/app/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 
 RUN mkdir -p /var/log/supervisor
-COPY prod/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker/mpi_prod/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY app /var/www/app
 RUN pip install -r /var/www/app/requirements.txt
