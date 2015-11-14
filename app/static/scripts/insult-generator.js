@@ -1,7 +1,8 @@
 define(["backbone", "underscore"], function(Backbone, _) {
   var insultGenerator = {};
   var settings = {
-    base_url: window.base_url
+    base_url: window.base_url,
+    og_image_url: window.og_image_url
   };
 
   var mainView = Backbone.View.extend({
@@ -76,6 +77,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
         insult += endings[this.getRandomInt(endings.length - 1)]; 
       }
 
+      // save share data and get back guid to use for share urls
       this.currentInsult = insult;
       var self = this;
       $.ajax({
@@ -88,6 +90,22 @@ define(["backbone", "underscore"], function(Backbone, _) {
         self.currentShareGuid = response.guid;
         self.renderInsult(insult);
       });
+
+
+      /*
+      var canvas = document.getElementById('canvas');
+      canvas.width = 580;
+      canvas.height = 200;
+      context = canvas.getContext("2d");
+      context.lineWidth = 2;
+      context.strokeStyle = "#ff0000";
+
+      var options = {
+        font: "42px Arial, sans-serif",
+      }
+
+      CanvasTextWrapper(canvas, insult, options);
+      */
     },
 
     renderInsult: function(insult){
@@ -95,11 +113,14 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
 
     shareFacebook: function(){
-       FB.ui({
-         method: 'share',
-         href: '/?share_guid=' + this.currentShareGuid,
-         caption: this.currentInsult
-       }, function(response){});
+      FB.ui({
+        method: 'share',
+        name: 'Monty Python Insult Generator Share',
+        href: settings.base_url,
+        description: this.currentInsult,
+        picture: settings.og_image_url,
+        caption: "Click to get your own insult"
+      }, function(response){});
     },
 
     shareTwitter: function(){
