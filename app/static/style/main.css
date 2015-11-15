@@ -103,6 +103,10 @@ h1.title {
   .insult {
     margin: 35% 5%;
   }
+  .insult-me {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
 }
 
 .clearfix {
