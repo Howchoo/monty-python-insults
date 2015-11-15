@@ -37,10 +37,9 @@ var Ads = (function() {
     $("#mobileLeaderboard").show();
 
     if (!googleSlots['mobileLeaderboard']) {
-      defineSlotByType('mobileLeaderboard');
+      defineSlotByType('mobileLeaderboard', true);
+      refresh(['mobileLeaderboard']);
     }
-
-    refresh(['mobileLeaderboard']);
   }
 
   function configureDesktop() {
@@ -49,9 +48,8 @@ var Ads = (function() {
 
     if (!googleSlots['leaderboard']) {
       defineSlotByType('leaderboard', true);
+      refresh(['leaderboard']);
     }
-
-    refresh(['leaderboard']);
   }
 
   function setListeners() {
