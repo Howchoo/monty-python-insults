@@ -7,7 +7,6 @@ define(["backbone", "underscore"], function(Backbone, _) {
 
   var mainView = Backbone.View.extend({
     currentInsult: "",
-    currentShareGuid: "",
     numInsultsGenerated: 0,
     el: ".container",
     events: {
@@ -77,35 +76,9 @@ define(["backbone", "underscore"], function(Backbone, _) {
         insult += endings[this.getRandomInt(endings.length - 1)]; 
       }
 
-      // save share data and get back guid to use for share urls
       this.currentInsult = insult;
       var self = this;
-      $.ajax({
-        url: settings.base_url + "save-share-data", 
-        type: "POST",
-        data: {
-          title: this.currentInsult
-        }
-      }).done(function(response){
-        self.currentShareGuid = response.guid;
-        self.renderInsult(insult);
-      });
-
-
-      /*
-      var canvas = document.getElementById('canvas');
-      canvas.width = 580;
-      canvas.height = 200;
-      context = canvas.getContext("2d");
-      context.lineWidth = 2;
-      context.strokeStyle = "#ff0000";
-
-      var options = {
-        font: "42px Arial, sans-serif",
-      }
-
-      CanvasTextWrapper(canvas, insult, options);
-      */
+      self.renderInsult(insult);
     },
 
     renderInsult: function(insult){
@@ -118,8 +91,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
         name: this.currentInsult,
         href: settings.base_url,
         description: 'Get your own Monty Pythonesque insult.',
-        //picture: settings.og_image_url,
-        picture: 'http://montypythoninsults.com/static/img/bg2.jpg',
+        picture: settings.og_image_url,
         caption: 'Monty Python Insult Generator'
       }, function(response){});
     },
