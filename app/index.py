@@ -1,12 +1,7 @@
 import os
-from flask import Flask, render_template, request, jsonify
-
-from werkzeug.contrib.cache import MemcachedCache
-
-from lib import get_guid
+from flask import Flask, render_template
 
 app = Flask(__name__)
-cache = MemcachedCache(['127.0.0.1:11211'])
 
 @app.route("/")
 def index():
