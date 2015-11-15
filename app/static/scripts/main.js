@@ -20,8 +20,10 @@ require.config({
     }
   }
 });
-require(["backbone", "router", "endings", "actions", 
-    "nouns", "adjectives", "noun_adjective_combos", "commands", "lib"], function(Backbone, Router) {
+require(["backbone", "router", "endings", "actions", "nouns", "adjectives",
+    "noun_adjective_combos", "commands", "lib", "ads"], function(Backbone, Router) {
   new Router();
   Backbone.history.start();
+
+  Ads.init();
 });
