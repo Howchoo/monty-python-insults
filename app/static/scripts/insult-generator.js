@@ -114,12 +114,13 @@ define(["backbone", "underscore"], function(Backbone, _) {
 
     shareFacebook: function(){
       FB.ui({
-        method: 'share',
-        name: 'Monty Python Insult Generator Share',
+        method: 'feed',
+        name: this.currentInsult,
         href: settings.base_url,
-        description: this.currentInsult,
-        picture: settings.og_image_url,
-        caption: "Click to get your own insult"
+        description: 'Get your own Monty Pythonesque insult.',
+        //picture: settings.og_image_url,
+        picture: 'http://montypythoninsults.com/static/img/bg2.jpg',
+        caption: 'Monty Python Insult Generator'
       }, function(response){});
     },
 
