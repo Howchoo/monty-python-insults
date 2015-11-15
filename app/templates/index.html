@@ -5,14 +5,18 @@
     <link href="/static/style/main.css" rel="stylesheet" type="text/css">
     <link href="/static/style/buttons.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <script data-main="/static/scripts/main" src="/static/bower_components/requirejs/require.js"></script>
+    <script data-main="/static/scripts/main" src="{{ url_for('static', filename='scripts/lib/require.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
 
     <meta property="og:url" content="http://www.montypythoninsults.com" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ og.title if og.title else 'Monty Python Insult Generator'}}" />
-    <meta property="og:description" content="Monty Python Insult Generator" />
-    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="Monty Python Insult Generator"/>
+    <meta property="og:title" content="Generate a Monty Pythonesque Insult" />
+    <meta property="og:description" content="Monty Python Insults are Only the Silliest. That's what you'll find on this page. Only the silliest insults." />
+    <!--<meta property="og:image" content="{{ url_for('static', filename='img/bg2.jpg', _external=True) }}" />-->
+    <meta property="og:image" content="http://montypythoninsults.com/static/img/fbshare.jpg" />
+    <meta property="fb:app_id" content="{{ '1084117374961782' if config.DEBUG else '1083266555046864' }}" />
+
     <script>
     var googletag = googletag || {};
     googletag.cmd = googletag.cmd || [];
@@ -57,9 +61,12 @@
   </script>
   <script>
     var base_url = "{{ request.base_url }}";
+    //var og_image_url = "{{ url_for('static', filename='img/bg2.jpg', _external=True) }}";
+    var og_image_url = "http://montypythoninsults.com/static/img/fbshare.jpg";
+    var appID = "{{ '1084117374961782' if config.DEBUG else '1083266555046864' }}";
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '1083266555046864',
+        appId      : appID,
         xfbml      : true,
         version    : 'v2.5'
       });

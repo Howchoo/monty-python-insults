@@ -1,8 +1,8 @@
 require.config({
   paths: {
-    "jquery": "jquery.min",
-    "underscore": "../bower_components/underscore/underscore-min",
-    "backbone": "../bower_components/backbone/backbone",
+    "jquery": "lib/jquery.min",
+    "underscore": "lib/underscore-min",
+    "backbone": "lib/backbone"
   },
   "shim" : {
     "backbone" : {
