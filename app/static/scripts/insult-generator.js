@@ -86,7 +86,6 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
 
     shareFacebook: function(){
-      console.log(ga);
       ga('send', 'facebook', 'insult', 'share');
       FB.ui({
         method: 'feed',

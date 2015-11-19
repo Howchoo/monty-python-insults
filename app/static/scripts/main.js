@@ -25,5 +25,10 @@ require(["backbone", "router", "endings", "actions", "nouns", "adjectives",
   new Router();
   Backbone.history.start();
 
-  Ads.init();
+  if (!userIsFromReddit) {
+    Ads.init();
+  } else {
+    var leaderboard = document.getElementsByClassName('leaderboard')[0];
+    leaderboard.style.display = 'none';
+  }
 });

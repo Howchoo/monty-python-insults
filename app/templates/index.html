@@ -71,6 +71,8 @@
     //var og_image_url = "{{ url_for('static', filename='img/bg2.jpg', _external=True) }}";
     var og_image_url = "http://montypythoninsults.com/static/img/fbshare.jpg";
     var appID = "{{ '1084117374961782' if config.DEBUG else '1083266555046864' }}";
+    var userIsFromReddit = {% if from_reddit %}true{% else %}false{% endif %};
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : appID,
