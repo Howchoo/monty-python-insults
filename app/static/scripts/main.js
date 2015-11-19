@@ -25,6 +25,7 @@ require(["backbone", "router", "endings", "actions", "nouns", "adjectives",
   new Router();
   Backbone.history.start();
 
+  console.log(userIsFromReddit);
   if (!userIsFromReddit) {
     Ads.init();
   } else {
