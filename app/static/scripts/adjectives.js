@@ -29,5 +29,6 @@ var adjectives = [
   "coiffured",
   "petulant",
   "whining",
-  "loose bladdered"
+  "loose bladdered",
+  "fusty"
 ]

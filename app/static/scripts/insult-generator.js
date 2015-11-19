@@ -86,6 +86,8 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
 
     shareFacebook: function(){
+      console.log(ga);
+      ga('send', 'facebook', 'insult', 'share');
       FB.ui({
         method: 'feed',
         name: this.currentInsult,
@@ -97,6 +99,7 @@ define(["backbone", "underscore"], function(Backbone, _) {
     },
 
     shareTwitter: function(){
+      ga('send', 'twitter', 'insult', 'share');
       var width = 575;
       var height = 400;
       var left = ($(window).width()  - width)  / 2;

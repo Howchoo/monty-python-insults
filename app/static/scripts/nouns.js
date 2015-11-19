@@ -24,5 +24,6 @@ var nouns = [
   "tosser",
   "ditch digger",
   "old sow",
-  "cow"
+  "cow",
+  "antiquarian"
 ]
