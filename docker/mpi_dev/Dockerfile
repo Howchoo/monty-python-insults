@@ -5,7 +5,6 @@ EXPOSE 5000
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu trusty universe" | sudo tee -a /etc/apt/sources.list
-
 RUN echo "91.189.88.46\tarchive.ubuntu.com\n91.189.88.46\tsecurity.ubuntu.com" >> /etc/hosts
 
 RUN apt-get upgrade

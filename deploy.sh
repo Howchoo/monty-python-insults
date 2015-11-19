@@ -1,11 +1,10 @@
 #!/bin/bash
 
-read -p "username:" username
-read -p "docker username:" docker_username
-read -p "docker email:" docker_email
-read -s "docker password:" docker_password
+set -e
 
-ssh -l $username -T mpi_web.montypythoninsults.com << EOF >/dev/null
-    docker login --email=$docker_email --username=$docker_username --password=$docker_password
-    docker pull
-EOF
+read -p "username: " username
+
+docker build -t josephtyler/mpi_prod:latest -f docker/mpi_prod/Dockerfile .
+docker push josephtyler/mpi_prod:latest
+
+ssh -t -l $username mpi-web.montypythoninsults.com "sudo /root/deploy.sh"
